@@ -1,0 +1,90 @@
+<!-- Indica al navegador que la página debe renderizarse usando el estándar moderno de HTML5 -->
+<!DOCTYPE html>
+
+<!-- Elemento raíz que envuelve todo el documento; 'lang="es"' especifica que el contenido está en español -->
+<html lang="es">
+
+<head>
+    <!-- Define la codificación UTF-8 para mostrar correctamente acentos, eñes y caracteres especiales -->
+    <meta charset="UTF-8">
+
+    <!-- Ajusta el área de visión en móviles para que el diseño sea adaptable y tome el ancho de la pantalla -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Define el título que se mostrará en la pestaña superior de la ventana del navegador -->
+    <title>Sistema de Calificaciones</title>
+
+    <!-- Enlaza el archivo CSS externo "estilos.css" que le dará el diseño visual, colores y distribución -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+    <!-- Bloque contenedor principal usado para centrar o estructurar todo el contenido en pantalla mediante CSS -->
+    <div class="contenedor">
+
+        <!-- Encabezado de nivel 1 que actúa como el título principal de la aplicación -->
+        <h1>Sistema de Calificaciones</h1>
+
+        <!-- Párrafo con texto informativo que le indica al usuario la instrucción inicial -->
+        <p>Captura las calificaciones del alumno</p>
+
+        <!-- Sección destinada a agrupar los campos de entrada de datos (formulario) -->
+        <div class="formulario">
+
+            <!-- Etiqueta asociativa para el campo de texto; el atributo 'for="nombre"' mejora la accesibilidad -->
+            <label for="nombre">Nombre del alumno:</label>
+            <!-- Campo de entrada de texto; 'id="nombre"' permite que JavaScript lea su valor y 'placeholder' muestra un texto guía -->
+            <input type="text" id="nombre" placeholder="Escribe el nombre">
+
+            <!-- Etiqueta descriptiva para la entrada de la edad -->
+            <label for="edad">Edad:</label>
+            <!-- Campo de tipo numérico; 'min="0"' evita que el usuario ingrese edades con valores negativos -->
+            <input type="number" id="edad" placeholder="Escribe la edad" min="0">
+
+            <!-- Etiqueta para la nota de la primera materia o periodo -->
+            <label for="calificacion1">Calificación 1:</label>
+            <!-- Campo numérico restringido entre 0 y 10; 'step="0.1"' permite escribir decimales (ej. 8.5) -->
+            <input type="number" id="calificacion1" min="0" max="10" step="0.1">
+
+            <!-- Etiqueta para la nota de la segunda materia o periodo -->
+            <label for="calificacion2">Calificación 2:</label>
+            <!-- Campo numérico restringido entre 0 y 10 con la posibilidad de subir o bajar decimales de 0.1 en 0.1 -->
+            <input type="number" id="calificacion2" min="0" max="10" step="0.1">
+
+            <!-- Etiqueta para la nota de la tercera materia o periodo -->
+            <label for="calificacion3">Calificación 3:</label>
+            <!-- Campo numérico validado para rangos del 0 al 10 con decimales -->
+            <input type="number" id="calificacion3" min="0" max="10" step="0.1">
+
+            <!-- Etiqueta para la nota de la cuarta materia o periodo -->
+            <label for="calificacion4">Calificación 4:</label>
+            <!-- Campo numérico validado para rangos del 0 al 10 con decimales -->
+            <input type="number" id="calificacion4" min="0" max="10" step="0.1">
+
+            <!-- Contenedor agrupador exclusivo para organizar el alineamiento de los botones de acción -->
+            <div class="acciones-botones">
+                <!-- Botón que activa la función JavaScript 'calcularPromedio()' al hacer clic sobre él -->
+                <button class="btn-calcular" onclick="calcularPromedio()">Promedio Alumno</button>
+
+                <!-- Botón que activa la función JavaScript 'agregarAlumno()' para registrarlo y calcular la media general -->
+                <button class="btn-agregar" onclick="agregarAlumno()">Agregar / Promedio General</button>
+
+                <!-- Botón que activa la función JavaScript 'limpiarFormulario()' para borrar los campos de texto -->
+                <button class="btn-limpiar" onclick="limpiarFormulario()">Limpiar</button>
+            </div>
+        </div>
+
+        <!-- Elemento vacío que usará JavaScript (usando document.getElementById("resultado")) para imprimir el promedio individual -->
+        <div id="resultado" class="resultado"></div>
+
+        <!-- Elemento vacío usado por JavaScript para imprimir el promedio acumulado de todos los alumnos agregados -->
+        <div id="resultado-general" class="resultado-general"></div>
+    </div>
+
+    <!-- Importa el script de JavaScript externo "script.js" ubicado al final del 'body' para asegurar que el HTML ya esté cargado antes de ejecutarse -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

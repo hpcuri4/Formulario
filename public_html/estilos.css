@@ -1,0 +1,146 @@
+/* Selector universal (*): Aplica la regla a absolutamente todos los elementos del documento HTML */
+* {
+    /* Mantiene las dimensiones exactas del elemento; incluye el padding y el borde dentro del ancho (width) y alto (height) declarados */
+    box-sizing: border-box;
+}
+
+/* Estilos aplicados al cuerpo principal de la página web */
+body {
+    /* Define la familia tipográfica: usa Arial y, si no está disponible, cae en la fuente genérica sans-serif del sistema */
+    font-family: Arial, sans-serif;
+    
+    /* Establece un color de fondo gris claro para toda la pantalla */
+    background-color: #f2f2f2;
+    
+    /* Elimina los márgenes predeterminados que los navegadores añaden al <body> por defecto */
+    margin: 0;
+    
+    /* Elimina cualquier relleno interno predeterminado del <body> */
+    padding: 0;
+}
+
+/* Tarjeta o contenedor central que envuelve la aplicación */
+.contenedor {
+    /* Fija el ancho del contenedor en 450 píxeles */
+    width: 450px;
+    
+    /* Centra la tarjeta horizontalmente (auto) y le otorga un espacio de 50 píxeles arriba y abajo */
+    margin: 50px auto;
+    
+    /* Color de fondo blanco para contrastar con el fondo gris del body */
+    background-color: white;
+    
+    /* Espacio interno de 30 píxeles alrededor de todo el contenido dentro del contenedor */
+    padding: 30px;
+    
+    /* Redondea las cuatro esquinas de la tarjeta con un radio de 10 píxeles */
+    border-radius: 10px;
+    
+    /* Aplica una sombra suave alrededor de la caja: X=0px, Y=5px, desenfoque=15px, color negro transparente al 20% */
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Estilos para el título principal de la aplicación */
+h1 {
+    /* Centra horizontalmente el texto del título */
+    text-align: center;
+    
+    /* Añade un espacio de 10 píxeles en la parte inferior para separarlo del párrafo instructivo */
+    margin-bottom: 10px;
+}
+
+/* Estilos para el texto secundario o instrucciones */
+p {
+    /* Centra horizontalmente el texto de la instrucción */
+    text-align: center;
+    
+    /* Aplica un color gris medio al texto para darle menor jerarquía visual que el h1 */
+    color: #666;
+}
+
+/* Contenedor principal de los elementos de entrada */
+.formulario {
+    /* Activa el modelo Flexbox para posicionar los elementos internos de forma flexible */
+    display: flex;
+    
+    /* Alinea los elementos secundarios en columna (uno debajo de otro de forma vertical) */
+    flex-direction: column;
+}
+
+/* Estilos aplicados a los textos sobre los inputs */
+label {
+    /* Agrega un espacio superior de 15 píxeles respecto al elemento anterior */
+    margin-top: 15px;
+    
+    /* Agrega un espacio de 5 píxeles respecto al input que tiene abajo */
+    margin-bottom: 5px;
+    
+    /* Aplica texto en negrita para resaltar las etiquetas */
+    font-weight: bold;
+}
+
+/* Estilos generales para todas las cajas de texto y entradas numéricas */
+input {
+    /* Relleno interno de 10 píxeles para que el texto ingresado no toque los bordes de la caja */
+    padding: 10px;
+    
+    /* Define un borde delgado de 1 píxel, de línea sólida y color gris claro (#ccc) */
+    border: 1px solid #ccc;
+    
+    /* Redondea las esquinas de los inputs con un radio de 5 píxeles */
+    border-radius: 5px;
+    
+    /* Ajusta el tamaño de la letra dentro de las entradas a 16 píxeles para facilitar su lectura */
+    font-size: 16px;
+}
+
+/* Estilos aplicados a las propiedades base de los botones */
+button {
+    /* Separa el botón 25 píxeles del campo de texto superior */
+    margin-top: 25px;
+    
+    /* Relleno interno de 12 píxeles para aumentar el área de clic del botón */
+    padding: 12px;
+    
+    /* Color de fondo azul corporativo (#007bff) */
+    background-color: #007bff;
+    
+    /* Color de texto blanco para contrastar con el fondo azul */
+    color: white;
+    
+    /* Remueve el borde metálico por defecto que asignan los navegadores */
+    border: none;
+    
+    /* Redondea las esquinas del botón con un radio de 5 píxeles */
+    border-radius: 5px;
+    
+    /* Tamaño de texto de 16 píxeles */
+    font-size: 16px;
+    
+    /* Cambia la flecha del ratón por el icono de una mano señalando (pointer) cuando el usuario pasa por encima */
+    cursor: pointer;
+}
+
+/* Pseudoclase que se activa automáticamente cuando el puntero del ratón se posiciona sobre el botón */
+button:hover {
+    /* Oscurece el tono de azul del fondo (#0056b3) para otorgar retroalimentación visual de interacción */
+    background-color: #0056b3;
+}
+
+/* Estilos para la caja flotante donde JavaScript inserta el resultado */
+.resultado {
+    /* Separa el área de resultados 25 píxeles del botón superior */
+    margin-top: 25px;
+    
+    /* Relleno interno de 15 píxeles dentro del contenedor de resultado */
+    padding: 15px;
+    
+    /* Centra el texto del resultado */
+    text-align: center;
+    
+    /* Suaviza las esquinas de la caja de resultado */
+    border-radius: 5px;
+    
+    /* Incrementa la letra a 18 píxeles para destacar los datos del promedio final */
+    font-size: 18px;
+}
