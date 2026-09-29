@@ -5,33 +5,37 @@ const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// Busca la carpeta donde está index.html (raíz, public_html, web, etc.)
-function findPublicDir(dir) {
-  if (fs.existsSync(path.join(dir, 'index.html'))) {
-    return dir;
+// Lista de carpetas posibles donde NetBeans guarda los archivos web
+const possibleFolders = [
+  __dirname,
+  path.join(__dirname, 'Site Root'),
+  path.join(__dirname, 'public_html'),
+  path.join(__dirname, 'web'),
+  path.join(__dirname, 'www')
+];
+
+// Encuentra la carpeta que contenga index.html
+let staticDir = __dirname;
+for (const folder of possibleFolders) {
+  if (fs.existsSync(path.join(folder, 'index.html'))) {
+    staticDir = folder;
+    break;
   }
-  const subdirs = fs.readdirSync(dir, { withFileTypes: true })
-                    .filter(d => d.isDirectory() && d.name !== 'node_modules' && !d.name.startsWith('.'));
-  for (const subdir of subdirs) {
-    const found = findPublicDir(path.join(dir, subdir.name));
-    if (found) return found;
-  }
-  return dir;
 }
 
-const staticDir = findPublicDir(__dirname);
-
+// Servir archivos estáticos (CSS, JS, imágenes)
 app.use(express.static(staticDir));
 
+// Servir el index.html principal
 app.get('*', (req, res) => {
   const indexPath = path.join(staticDir, 'index.html');
   if (fs.existsSync(indexPath)) {
     res.sendFile(indexPath);
   } else {
-    res.send('index.html no encontrado.');
+    res.status(404).send('index.html no encontrado.');
   }
 });
 
 app.listen(PORT, () => {
-  console.log(`Servidor iniciado en puerto ${PORT}`);
+  console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
